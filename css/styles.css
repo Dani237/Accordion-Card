@@ -1,1 +1,164 @@
+:root {
 
+    /* text */
+    --v-d-blue: hsl(238, 29%, 16%);
+    --soft-red: hsl(14, 88%, 65%);
+
+    --v-d-g-blue: hsl(237, 12%, 33%);
+    --d-g-blue: hsl(240, 6%, 50%);
+
+    /* gradient */
+    --soft-violet: hsl(273, 75%, 66%);
+    --soft-blue: hsl(240, 73%, 65%);
+
+    /* dividers */
+    --l-g-blue: hsl(240, 5%, 91%);
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+h1 {
+    margin: 0;
+    font-size: 3.2rem;
+}
+body {
+    font-size: 1.4rem;
+    font-family: 'Kumbh Sans', sans-serif;
+    background: linear-gradient(var(--soft-violet), var(--soft-blue));
+}
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+img {
+    max-width: 100%;
+}
+/* CARD */
+
+.card {
+    background-color: white;
+    width: 90rem;
+    border-radius: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: absolute;
+    z-index: 3;
+}
+
+
+/* HERO */
+
+.hero {
+
+}
+.fondo {
+    margin-left: -57.5rem;
+    margin-top: -30rem;
+    z-index: 1;
+    position: fixed;
+    z-index: 1;
+}
+.logo {
+    margin-top: 7rem;
+    margin-left: -8rem;
+    z-index: 1;
+    position: fixed;
+}
+.caja {
+    margin-top: 20rem;
+    margin-left: -9rem;
+    position: fixed;
+    z-index: 4;
+}
+h1 {
+    font-weight: 700;
+}
+
+/* QUESTION */
+.questions-side {
+    padding: 6rem 12rem 6rem 1.5rem;
+}
+.question {
+    border-bottom: 1px solid var(--l-g-blue);
+    margin: 1rem 0;
+    padding-bottom: 1rem;
+}
+
+/* ASK */
+.ask {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.ask:hover {
+    color: var(--soft-red);
+}
+.arrow {
+    transition: all .6s ease;
+}
+.arrow:hover {
+    transform: rotate(180deg);
+}
+
+
+@media (max-width: 375px) {
+    p {
+        font-size: 1.2rem;
+    }
+    .card {
+        max-width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo, .caja, .fondo {
+        width: 0;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .questions-side {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+    .hero {
+        background-image: url(../images/illustration-woman-online-mobile.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 22rem;
+        margin-top: -9.8rem;
+        height: 22rem;
+    }
+    .bg-mobile {
+        background-image: url(../images/bg-pattern-mobile.svg);
+        background-repeat: no-repeat;
+        margin-top: 9.8rem;
+        background-size: contain;
+        width: 22rem;
+        height: 30rem;
+    }
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
