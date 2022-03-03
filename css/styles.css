@@ -89,6 +89,7 @@ h1 {
     border-bottom: 1px solid var(--l-g-blue);
     margin: 1rem 0;
     padding-bottom: 1rem;
+
 }
 
 /* ASK */
@@ -105,10 +106,20 @@ h1 {
 .arrow {
     transition: all .6s ease;
 }
-.arrow:hover {
+.rotate {
     transform: rotate(180deg);
 }
+.negrita {
+    font-weight: bold;
+    color: black;
+}
+.answer {
+    display: none;
 
+}
+.oculto {
+    display: block;
+}
 
 @media (max-width: 375px) {
     p {
