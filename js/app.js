@@ -12,6 +12,7 @@ for (let i = 0; i < preguntas.length; i++) {
 
 function cerrarPreguntas( id, id2 ) {
     let pos = id - 1;
+    let cont = 0;
     most[pos] = true;
     console.log('Clickeando otra pregunta');
     respuestas.forEach( preg => {
@@ -25,7 +26,9 @@ function cerrarPreguntas( id, id2 ) {
     preguntas.forEach( resp => {
         if ( resp.id != id2) {
             resp.classList.remove('negrita');
+            arrows[cont].classList.remove('rotate');
         }
+        cont = cont + 1;
     });
     console.log('----------------');
 }
