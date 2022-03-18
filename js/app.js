@@ -1,31 +1,51 @@
-// VARIABLES
-const question1 = document.querySelector('.q1');
-const question2 = document.querySelector('.q2');
-const question3 = document.querySelector('.q3');
-const question4 = document.querySelector('.q4');
-const question5 = document.querySelector('.q5');
+const respuestas = document.querySelectorAll('.answer');
+const preguntas = document.querySelectorAll('.ask');
+const arrows = document.querySelectorAll('.arrow');
 
-const pregunta = document.querySelector('.p1');
-const respuesta = document.querySelector('.answer');
+let most = [false, false, false, false, false];
 
-let mostrado = false;
-const arrow = document.querySelector('.arrow');
+for (let i = 0; i < preguntas.length; i++) {
+    preguntas[i].addEventListener('click', function() {
+        mostrarRespuesta(i);
+    });
+}
 
-question1.addEventListener('click', mostrarRespuesta);
-question2.addEventListener('click', mostrarRespuesta);
-question3.addEventListener('click', mostrarRespuesta);
-question4.addEventListener('click', mostrarRespuesta);
-question5.addEventListener('click', mostrarRespuesta);
+function cerrarPreguntas( id, id2 ) {
+    let pos = id - 1;
+    most[pos] = true;
+    console.log('Clickeando otra pregunta');
+    respuestas.forEach( preg => {
+        if ( preg.id != id) {
+            preg.style.height = "0";
+            preg.style.opacity = "0";
+            most[preg.id - 1] = false;
+        }
+        console.log(preg.id - 1 + ': ' + most[preg.id - 1]);
+    });
+    preguntas.forEach( resp => {
+        if ( resp.id != id2) {
+            resp.classList.remove('negrita');
+        }
+    });
+    console.log('----------------');
+}
+function mostrarRespuesta(id) {
+    most[id] = !most[id];
 
-function mostrarRespuesta() {
-    mostrado = !mostrado;
-    if ( mostrado ) {
-        arrow.classList.add('rotate');
-        pregunta.classList.add('negrita');
-        respuesta.classList.add('oculto');
+    if ( most[id] ) {
+        arrows[id].classList.add('rotate');
+        preguntas[id].classList.add('negrita');
+        respuestas[id].style.height = "50px";
+        respuestas[id].style.opacity = "1";
+        respuestas[id].style.transition = "all .3s ease";
+        cerrarPreguntas(id + 1, id + 6);
     } else {
-        arrow.classList.remove('rotate');
-        pregunta.classList.remove('negrita');
-        respuesta.classList.remove('oculto');
+        console.log('Clickeando la misma pregunta');
+        arrows[id].classList.remove('rotate');
+        preguntas[id].classList.remove('negrita');
+        respuestas[id].style.height = "0";
+        respuestas[id].style.opacity = "0";
     }
+
+
 }
